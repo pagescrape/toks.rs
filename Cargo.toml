@@ -1,6 +1,6 @@
 [package]
 name = "toks"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Ernestas Poskus <ernestas.poskus@gmail.com>"]
 license = "MIT/Apache-2.0"
 readme = "README.md"
@@ -9,10 +9,10 @@ repository = "https://github.com/ernestas-poskus/toks.rs"
 homepage = "https://github.com/ernestas-poskus/toks.rs"
 documentation = "https://docs.rs/toks"
 description = """
-Efficient tokens for `html5eve::rcdom::RcDom` `Handle` parsing
+Efficient tokens for `html5ever::rcdom::RcDom` `Handle` parsing
 aiming for O(1) HTML DOM walking & efficiency.
 """
-categories = ["HTML", "parsing"]
+categories = ["parsing"]
 
 [dependencies]
 html5ever = "0.18.0"
