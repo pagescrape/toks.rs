@@ -15,7 +15,7 @@ aiming for O(1) HTML DOM walking & efficiency.
 categories = ["parsing"]
 
 [dependencies]
-html5ever = "0.18.0"
+html5ever = "0.19.0"
 
 [badges]
 travis-ci = { repository = "ernestas-poskus/toks.rs" }
