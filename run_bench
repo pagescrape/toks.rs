@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo "" >> BENCHMARK.md
+echo "`date` (`rustc --version`)" >> BENCHMARK.md
+cargo bench --locked --quiet >> BENCHMARK.md
+echo "#############################################" >> BENCHMARK.md
