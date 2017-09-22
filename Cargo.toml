@@ -1,21 +1,24 @@
 [package]
-name = "toks"
-version = "0.2.0"
 authors = ["Ernestas Poskus <ernestas.poskus@gmail.com>"]
-license = "MIT/Apache-2.0"
-readme = "README.md"
-keywords = ["HTML", "parsing"]
-repository = "https://github.com/ernestas-poskus/toks.rs"
-homepage = "https://github.com/ernestas-poskus/toks.rs"
-documentation = "https://docs.rs/toks"
+categories = ["parsing"]
 description = """
 Efficient tokens for `html5ever::rcdom::RcDom` `Handle` parsing
 aiming for O(1) HTML DOM walking & efficiency.
 """
-categories = ["parsing"]
+documentation = "https://docs.rs/toks"
+homepage = "https://github.com/ernestas-poskus/toks.rs"
+keywords = [
+    "HTML",
+    "parsing",
+]
+license = "MIT/Apache-2.0"
+name = "toks"
+readme = "README.md"
+repository = "https://github.com/ernestas-poskus/toks.rs"
+version = "0.3.0"
+
+[badges.travis-ci]
+repository = "ernestas-poskus/toks.rs"
 
 [dependencies]
-html5ever = "0.19.0"
-
-[badges]
-travis-ci = { repository = "ernestas-poskus/toks.rs" }
+html5ever = "0.20.0"
