@@ -1,8 +1,8 @@
-use html5ever::rcdom::{Handle, NodeData};
-use tok::Tok;
+use crate::tok::Tok;
+use markup5ever_rcdom::{Handle, NodeData};
 
 /// Toks convenience type alias to Vec of Tok's.
-pub type Toks<'s> = Vec<&'s mut Tok>;
+pub type Toks<'s> = Vec<&'s mut dyn Tok>;
 
 /// Helper function which walks through `html5ever::rcdom::Handle`
 /// `NodeData::Element` branch recursively and fires `Tok``process`

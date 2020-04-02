@@ -1,6 +1,6 @@
-use html5ever::QualName;
-use html5ever::rcdom::Handle;
 use html5ever::interface::Attribute;
+use html5ever::QualName;
+use markup5ever_rcdom::Handle;
 use std::cell::RefCell;
 
 /// Tok in short for token which is used to recursively walk
@@ -14,9 +14,9 @@ pub trait Tok {
     ///
     /// Depending on the result of boolean match this
     /// allows process function to proceed.
-    fn is_match(&self, &QualName) -> bool;
+    fn is_match(&self, qual_name: &QualName) -> bool;
 
     /// Process function gets matched QualName attributes and children of
     /// matched element.
-    fn process(&mut self, RefCell<Vec<Attribute>>, RefCell<Vec<Handle>>);
+    fn process(&mut self, attributes: RefCell<Vec<Attribute>>, children: RefCell<Vec<Handle>>);
 }

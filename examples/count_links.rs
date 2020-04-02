@@ -1,14 +1,11 @@
-extern crate toks;
 #[macro_use]
 extern crate html5ever;
 
 use html5ever::parse_document;
-use html5ever::rcdom::{RcDom, Handle};
 use html5ever::tendril::TendrilSink;
 
-use toks::{Tok, recursion};
-use toks::prelude::*;
 use std::io::{self, Read};
+use toks::prelude::*;
 
 pub struct LinkTok {
     total: u32,

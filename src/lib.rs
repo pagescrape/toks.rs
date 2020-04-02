@@ -11,11 +11,6 @@
 //! #[macro_use]
 //! extern crate html5ever;
 //!
-//! use html5ever::parse_document;
-//! use html5ever::rcdom::{RcDom, Handle};
-//! use html5ever::tendril::TendrilSink;
-//!
-//! use toks::{Tok, recursion};
 //! use toks::prelude::*;
 //! use std::io::{self, Read};
 //!
@@ -53,32 +48,61 @@
 //!     println!("Link <a> count {}", lt.total);
 //! }
 //!```
-#![warn(
-    missing_docs,
+#![deny(
+    warnings,
+    bad_style,
+    const_err,
+    dead_code,
+    improper_ctypes,
+    non_shorthand_field_patterns,
+    no_mangle_generic_items,
+    overflowing_literals,
+    path_statements,
+    patterns_in_fns_without_body,
+    private_in_public,
+    unconditional_recursion,
+    unused,
+    unused_allocation,
+    unused_comparisons,
+    unused_parens,
+    while_true,
     missing_debug_implementations,
-    missing_copy_implementations,
-    trivial_casts,
+    missing_docs,
     trivial_numeric_casts,
     unused_extern_crates,
     unused_import_braces,
     unused_qualifications,
-    variant_size_differences
+    unused_results,
+    trivial_numeric_casts,
+    unreachable_pub,
+    unused_extern_crates,
+    unused_import_braces,
+    unused_qualifications,
+    unused_results,
+    deprecated,
+    unconditional_recursion,
+    unknown_lints,
+    unreachable_code,
+    unused_mut
 )]
-
-extern crate html5ever;
 
 mod tok;
 mod toks;
 
+pub use crate::toks::{recursion, Toks};
 pub use tok::Tok;
-pub use toks::*;
 
 /// Prelude module contains several important traits that provide many
 /// of the convenience imports in advance.
 pub mod prelude {
+    pub use html5ever;
     #[doc(no_inline)]
     pub use html5ever::interface::Attribute;
-    pub use html5ever::QualName;
-    pub use html5ever::rcdom::Handle;
+    pub use html5ever::tendril::TendrilSink;
+    pub use html5ever::{parse_document, QualName};
+    pub use markup5ever_rcdom::{Handle, NodeData, RcDom};
     pub use std::cell::RefCell;
+
+    // Re-export
+    pub use crate::{recursion, Tok, Toks};
 }

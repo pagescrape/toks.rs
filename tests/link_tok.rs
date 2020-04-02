@@ -1,8 +1,6 @@
-extern crate toks;
 #[macro_use]
 extern crate html5ever;
 
-use toks::{Tok, recursion};
 use toks::prelude::*;
 mod helpers;
 
