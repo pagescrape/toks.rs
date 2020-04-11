@@ -13,8 +13,8 @@ impl Tok for TitleTok {
         qn.local == local_name!("a")
     }
 
-    fn process(&mut self, attrs: RefCell<Vec<Attribute>>, _handles: RefCell<Vec<Handle>>) {
-        for attr in attrs.borrow().iter() {
+    fn process(&mut self, attrs: &mut Vec<Attribute>, _: &mut Vec<Handle>) {
+        for attr in attrs.iter() {
             if attr.name.local == local_name!("title") {
                 let title = attr.value.to_string();
                 if let Some(first_letter) = title.get(0..1) {

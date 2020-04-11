@@ -1,5 +1,6 @@
 #[macro_use]
 extern crate html5ever;
+extern crate toks;
 
 use html5ever::parse_document;
 use html5ever::tendril::TendrilSink;
@@ -16,7 +17,7 @@ impl Tok for LinkTok {
         qn.local == local_name!("a")
     }
 
-    fn process(&mut self, _: RefCell<Vec<Attribute>>, _: RefCell<Vec<Handle>>) {
+    fn process(&mut self, _: &mut Vec<Attribute>, _: &mut Vec<Handle>) {
         self.total += 1;
     }
 }

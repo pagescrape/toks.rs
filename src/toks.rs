@@ -8,22 +8,15 @@ pub type Toks<'s> = Vec<&'s mut dyn Tok>;
 /// `NodeData::Element` branch recursively and fires `Tok``process`
 /// function if `QualName` is found by `is_match`.
 pub fn recursion(toks: &mut Toks, handle: Handle) {
-    match handle.data {
-        NodeData::Element {
-            ref name,
-            ref attrs,
-            ..
-        } => {
-            for tok in toks.iter_mut() {
-                if tok.is_match(name) {
-                    tok.process(attrs.clone(), handle.children.clone())
-                }
+    if let NodeData::Element { name, attrs, .. } = &handle.data {
+        for tok in toks.iter_mut() {
+            if tok.is_match(&name) {
+                tok.process(&mut attrs.borrow_mut(), &mut handle.children.borrow_mut())
             }
         }
-        _ => {}
     }
 
-    for child in handle.children.borrow().iter() {
+    for child in handle.children.borrow_mut().iter() {
         recursion(toks, child.clone());
     }
 }
