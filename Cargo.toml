@@ -23,4 +23,4 @@ repository = "ernestas-poskus/toks.rs"
 
 [dependencies]
 html5ever = "0.25"
-markup5ever_rcdom = "0.1"
+markup5ever_rcdom = "0.2"
