@@ -10,7 +10,7 @@ pub type Toks<'s> = Vec<&'s mut dyn Tok>;
 pub fn recursion(toks: &mut Toks, handle: Handle) {
     if let NodeData::Element { name, attrs, .. } = &handle.data {
         for tok in toks.iter_mut() {
-            if tok.is_match(&name) {
+            if tok.is_match(name) {
                 tok.process(&mut attrs.borrow_mut(), &mut handle.children.borrow_mut())
             }
         }
